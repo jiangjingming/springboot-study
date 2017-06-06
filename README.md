@@ -1,6 +1,6 @@
 ## 风控反欺诈系统Venucia
 
-负责人：镇模<zhenmo@maihaoche.com>, 小龙<xiaolong@maihaoche.com>，百里<baili@maihaoche.com>
+负责人：景明<zhenmo@maihaoche.com>, 小龙<xiaolong@maihaoche.com>，百里<baili@maihaoche.com>
 
 ---
 
