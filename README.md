@@ -1,7 +1,9 @@
-## 风控反欺诈系统Venucia
+## 内置各种常用的微服务框架，基于springboot分布式系统
 
-负责人：景明<zhenmo@maihaoche.com>, 小龙<xiaolong@maihaoche.com>，百里<baili@maihaoche.com>
+负责人：林俊，蔡祥霹，薛荣荣，詹乐乐，姜景明
 
 ---
 
-Venucia是风控部门反欺诈系统产品代号，包括：企业黑名单管理、企业关联关系查询、企业信用查询三个功能。
+springboot-study项目的目标是集成各种服务，基于springboot分布式项目。
+目前开发的人员都是未来IT行业顶尖精英。
+如果说，现在他们还没成功，但是可以很负责人的说，他们正在成功的路上！
