@@ -68,8 +68,9 @@
         </javaClientGenerator>
 
         <!-- 配置表信息 -->
-        <table tableName="t_user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <!--<table tableName="student" domainObjectName="Student" enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <table tableName="student" domainObjectName="Student"></table>
 
     </context>
 </generatorConfiguration>

@@ -1,14 +1,18 @@
 package org.com.baili.springboot.study;
 
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * Spring Boot 应用启动类
  *
- * Created by bysocket on 16/4/26.
+ * Created by jingjingming on 17/06/06.
  */
-// Spring Boot 应用的标识
+@EnableCaching
+@ComponentScan
 @SpringBootApplication
 public class Application {
 
