@@ -1,0 +1,17 @@
+# Created by .ignore support plugin (hsz.mobi)
+*/target
+.idea
+*.iml
+*/*.iml
+*/*/*.iml
+*.ipr
+*.iws
+/out/
+.idea_modules/
+*.class
+*.log
+.DS_Store
+/classes
+
+#前端构建
+node_modules/
