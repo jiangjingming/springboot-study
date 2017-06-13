@@ -3,12 +3,11 @@ package com.baili.dao;
 import com.baili.entity.Student;
 import com.baili.entity.StudentCriteria;
 import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
 
 public interface StudentMapper {
-    long countByExample(StudentCriteria example);
+    int countByExample(StudentCriteria example);
 
     int deleteByExample(StudentCriteria example);
 
