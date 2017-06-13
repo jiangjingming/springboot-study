@@ -71,6 +71,7 @@
         <!--<table tableName="student" domainObjectName="Student" enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
         <table tableName="student" domainObjectName="Student"></table>
+        <table tableName="prefix_member" domainObjectName="Member"></table>
 
     </context>
 </generatorConfiguration>

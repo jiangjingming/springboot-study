@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baili.dao.MemberMapper">
+  <resultMap id="BaseResultMap" type="com.baili.entity.Member">
+    <result column="uid" jdbcType="BIGINT" property="uid" />
+    <result column="employee_id" jdbcType="CHAR" property="employeeId" />
+    <result column="gender" jdbcType="BIT" property="gender" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="uname" jdbcType="VARCHAR" property="uname" />
+    <result column="passwd" jdbcType="VARCHAR" property="passwd" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="portrait" jdbcType="VARCHAR" property="portrait" />
+    <result column="big_portrait" jdbcType="VARCHAR" property="bigPortrait" />
+    <result column="phone" jdbcType="CHAR" property="phone" />
+    <result column="reg_time" jdbcType="INTEGER" property="regTime" />
+    <result column="login_num" jdbcType="INTEGER" property="loginNum" />
+    <result column="last_login" jdbcType="INTEGER" property="lastLogin" />
+    <result column="last_ip" jdbcType="VARCHAR" property="lastIp" />
+    <result column="is_supper" jdbcType="TINYINT" property="isSupper" />
+    <result column="timeline" jdbcType="TIMESTAMP" property="timeline" />
+    <result column="union_id" jdbcType="VARCHAR" property="unionId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    uid, employee_id, gender, nickname, uname, passwd, email, portrait, big_portrait, 
+    phone, reg_time, login_num, last_login, last_ip, is_supper, timeline, union_id
+  </sql>
+  <select id="selectByExample" parameterType="com.baili.entity.MemberCriteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from prefix_member
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.baili.entity.MemberCriteria">
+    delete from prefix_member
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.baili.entity.Member">
+    insert into prefix_member (uid, employee_id, gender, 
+      nickname, uname, passwd, 
+      email, portrait, big_portrait, 
+      phone, reg_time, login_num, 
+      last_login, last_ip, is_supper, 
+      timeline, union_id)
+    values (#{uid,jdbcType=BIGINT}, #{employeeId,jdbcType=CHAR}, #{gender,jdbcType=BIT}, 
+      #{nickname,jdbcType=VARCHAR}, #{uname,jdbcType=VARCHAR}, #{passwd,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{portrait,jdbcType=VARCHAR}, #{bigPortrait,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=CHAR}, #{regTime,jdbcType=INTEGER}, #{loginNum,jdbcType=INTEGER}, 
+      #{lastLogin,jdbcType=INTEGER}, #{lastIp,jdbcType=VARCHAR}, #{isSupper,jdbcType=TINYINT}, 
+      #{timeline,jdbcType=TIMESTAMP}, #{unionId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.baili.entity.Member">
+    insert into prefix_member
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="employeeId != null">
+        employee_id,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="uname != null">
+        uname,
+      </if>
+      <if test="passwd != null">
+        passwd,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="portrait != null">
+        portrait,
+      </if>
+      <if test="bigPortrait != null">
+        big_portrait,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="regTime != null">
+        reg_time,
+      </if>
+      <if test="loginNum != null">
+        login_num,
+      </if>
+      <if test="lastLogin != null">
+        last_login,
+      </if>
+      <if test="lastIp != null">
+        last_ip,
+      </if>
+      <if test="isSupper != null">
+        is_supper,
+      </if>
+      <if test="timeline != null">
+        timeline,
+      </if>
+      <if test="unionId != null">
+        union_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        #{uid,jdbcType=BIGINT},
+      </if>
+      <if test="employeeId != null">
+        #{employeeId,jdbcType=CHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=BIT},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="uname != null">
+        #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="passwd != null">
+        #{passwd,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="portrait != null">
+        #{portrait,jdbcType=VARCHAR},
+      </if>
+      <if test="bigPortrait != null">
+        #{bigPortrait,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=CHAR},
+      </if>
+      <if test="regTime != null">
+        #{regTime,jdbcType=INTEGER},
+      </if>
+      <if test="loginNum != null">
+        #{loginNum,jdbcType=INTEGER},
+      </if>
+      <if test="lastLogin != null">
+        #{lastLogin,jdbcType=INTEGER},
+      </if>
+      <if test="lastIp != null">
+        #{lastIp,jdbcType=VARCHAR},
+      </if>
+      <if test="isSupper != null">
+        #{isSupper,jdbcType=TINYINT},
+      </if>
+      <if test="timeline != null">
+        #{timeline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="unionId != null">
+        #{unionId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.baili.entity.MemberCriteria" resultType="java.lang.Long">
+    select count(*) from prefix_member
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update prefix_member
+    <set>
+      <if test="record.uid != null">
+        uid = #{record.uid,jdbcType=BIGINT},
+      </if>
+      <if test="record.employeeId != null">
+        employee_id = #{record.employeeId,jdbcType=CHAR},
+      </if>
+      <if test="record.gender != null">
+        gender = #{record.gender,jdbcType=BIT},
+      </if>
+      <if test="record.nickname != null">
+        nickname = #{record.nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uname != null">
+        uname = #{record.uname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.passwd != null">
+        passwd = #{record.passwd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null">
+        email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.portrait != null">
+        portrait = #{record.portrait,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bigPortrait != null">
+        big_portrait = #{record.bigPortrait,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phone != null">
+        phone = #{record.phone,jdbcType=CHAR},
+      </if>
+      <if test="record.regTime != null">
+        reg_time = #{record.regTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.loginNum != null">
+        login_num = #{record.loginNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.lastLogin != null">
+        last_login = #{record.lastLogin,jdbcType=INTEGER},
+      </if>
+      <if test="record.lastIp != null">
+        last_ip = #{record.lastIp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isSupper != null">
+        is_supper = #{record.isSupper,jdbcType=TINYINT},
+      </if>
+      <if test="record.timeline != null">
+        timeline = #{record.timeline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.unionId != null">
+        union_id = #{record.unionId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update prefix_member
+    set uid = #{record.uid,jdbcType=BIGINT},
+      employee_id = #{record.employeeId,jdbcType=CHAR},
+      gender = #{record.gender,jdbcType=BIT},
+      nickname = #{record.nickname,jdbcType=VARCHAR},
+      uname = #{record.uname,jdbcType=VARCHAR},
+      passwd = #{record.passwd,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
+      portrait = #{record.portrait,jdbcType=VARCHAR},
+      big_portrait = #{record.bigPortrait,jdbcType=VARCHAR},
+      phone = #{record.phone,jdbcType=CHAR},
+      reg_time = #{record.regTime,jdbcType=INTEGER},
+      login_num = #{record.loginNum,jdbcType=INTEGER},
+      last_login = #{record.lastLogin,jdbcType=INTEGER},
+      last_ip = #{record.lastIp,jdbcType=VARCHAR},
+      is_supper = #{record.isSupper,jdbcType=TINYINT},
+      timeline = #{record.timeline,jdbcType=TIMESTAMP},
+      union_id = #{record.unionId,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <select id="selectByExampleWithRowbounds" parameterType="com.baili.entity.MemberCriteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from prefix_member
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <cache />
+</mapper>

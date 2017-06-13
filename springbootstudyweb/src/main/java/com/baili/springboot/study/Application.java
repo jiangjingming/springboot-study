@@ -1,9 +1,8 @@
-package org.com.baili.springboot.study;
+package com.baili.springboot.study;
 
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
@@ -11,8 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
  *
  * Created by jingjingming on 17/06/06.
  */
-@EnableCaching
-@ComponentScan
+@ComponentScan({"com.baili.springboot.core","com.baili.springboot"})
 @SpringBootApplication
 public class Application {
 

@@ -1,11 +1,12 @@
-package org.com.baili.springboot.study.web;
+package com.baili.springboot.study.web;
 
-import com.baili.dao.StudentMapper;
 import com.baili.entity.Student;
 import com.baili.entity.StudentCriteria;
+import com.baili.springboot.core.IStudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -14,22 +15,24 @@ import java.util.List;
  *
  * Created by bysocket on 16/4/26.
  */
-@RestController
+@Controller
 public class HelloWorldController {
 
     @Autowired
-    private StudentMapper studentMapper;
+    private IStudentService studentService;
 
-    @RequestMapping("/")
+    @RequestMapping("/all")
+    @ResponseBody
     public String sayHello() {
         return "Hello,World!";
     }
 
+    @ResponseBody
     @RequestMapping("/studentList")
     public List<Student> studentList() {
         StudentCriteria criteria = new StudentCriteria();
         //criteria.createCriteria().
-        List<Student> studentList = studentMapper.selectByExample(criteria);
+        List<Student> studentList = studentService.selectStudents(criteria);
         return studentList;
     }
 }
