@@ -37,6 +37,8 @@ public class HttpClientUtils {
 
     private static final CloseableHttpClient defaultHttpClient = HttpClientUtils.createDefaultHttpClient();
 
+    private static final CloseableHttpClient defaultHttpsClient = HttpClientUtils.createDefaultSSLClient();
+
     /**
      * connection超时时间
      */
@@ -92,6 +94,26 @@ public class HttpClientUtils {
         return executeHttpPost(defaultHttpClient,httpEntity,httpUrl);
     }
 
+    /**
+     * 执行请求
+     * e.g:
+     EntityBuilder entityBuilder = EntityBuilder.create();
+     // 创建参数队列
+     List<NameValuePair> formparams = new ArrayList<>();
+     formparams.add(new BasicNameValuePair("grant_type", "refresh_token"));
+     formparams.add(new BasicNameValuePair("refresh_token", refreshToken));
+     formparams.add(new BasicNameValuePair("client_id", appId));
+     formparams.add(new BasicNameValuePair("client_secret", appSecret));
+
+     entityBuilder.setParameters(formparams);
+
+     entityBuilder.setContentType(ContentType.APPLICATION_FORM_URLENCODED);
+     * @param httpClient
+     * @param httpEntity
+     * @param httpUrl
+     * @return
+     * @throws IOException
+     */
     public static ResponseResult executeHttpPost(CloseableHttpClient httpClient,HttpEntity httpEntity, String httpUrl) throws IOException {
         if(httpClient == null || httpEntity == null || StringUtils.isEmpty(httpUrl)){
             return null;
@@ -144,6 +166,9 @@ public class HttpClientUtils {
         HttpEntity responseEntity = null;
         try {
             HttpGet httpGet = new HttpGet(httpUrl);
+            //企查查CMS接口防止调用，用UA避开
+            httpGet.setHeader("User-Agent","Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36");
+
             response = httpClient.execute(httpGet);
             responseEntity = response.getEntity();
 
@@ -176,17 +201,32 @@ public class HttpClientUtils {
         if(httpClient == null || StringUtils.isEmpty(serverUrl)){
             return null;
         }
+        String resultHttpUrl = getHttpClientUrl(serverUrl, param);
+        return executeHttpGet(httpClient,resultHttpUrl);
+    }
+
+    /**
+     * 构建查询url
+     * @param serverUrl
+     * @param param
+     * @return
+     * @throws IOException
+     */
+    public static String getHttpClientUrl(String serverUrl, Map<String,String> param) throws IOException{
         StringBuilder httpUrlBuilder = new StringBuilder(serverUrl);
         String resultHttpUrl = null;
         if(!CollectionUtils.isEmpty(param)){
             httpUrlBuilder.append("?");
             for(Map.Entry<String,String> paramEntry : param.entrySet()){
+                if(paramEntry.getValue()==null){
+                    paramEntry.setValue("");
+                }
                 httpUrlBuilder.append(paramEntry.getKey()).append("=").append(URLEncoder.encode(paramEntry.getValue().trim(),"utf-8")).append("&");
             }
             String httpUrl = httpUrlBuilder.toString();
             resultHttpUrl  = httpUrl.substring(0,httpUrl.length()-1);
         }
-        return executeHttpGet(httpClient,resultHttpUrl);
+        return resultHttpUrl;
     }
 
 }

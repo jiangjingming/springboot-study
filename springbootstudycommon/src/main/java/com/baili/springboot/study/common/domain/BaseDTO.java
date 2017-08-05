@@ -3,7 +3,7 @@ package com.baili.springboot.study.common.domain;
 import java.io.Serializable;
 
 /**
- * Created by xingxuan on 17/2/21.
+ * Created by baili on 17/2/21.
  */
 public abstract class  BaseDTO implements Serializable {
 
