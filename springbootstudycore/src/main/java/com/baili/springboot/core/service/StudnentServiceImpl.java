@@ -1,4 +1,4 @@
-package com.baili.springboot.core;
+package com.baili.springboot.core.service;
 
 import com.baili.dao.StudentMapper;
 import com.baili.entity.Student;

@@ -2,7 +2,7 @@ package com.baili.springboot.study.web;
 
 import com.baili.entity.Student;
 import com.baili.entity.StudentCriteria;
-import com.baili.springboot.core.IStudentService;
+import com.baili.springboot.core.service.IStudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

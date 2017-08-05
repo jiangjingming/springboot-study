@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
 
 public interface StudentMapper {
-    int countByExample(StudentCriteria example);
+    long countByExample(StudentCriteria example);
 
     int deleteByExample(StudentCriteria example);
 

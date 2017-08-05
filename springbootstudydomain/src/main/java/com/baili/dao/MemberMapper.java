@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
 
 public interface MemberMapper {
-    int countByExample(MemberCriteria example);
+    long countByExample(MemberCriteria example);
 
     int deleteByExample(MemberCriteria example);
 

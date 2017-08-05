@@ -4,9 +4,12 @@ server:
 spring:
   application:
       name: springboot-study
+  #quartz
+  quartz:
+    enabled: true
   # MySQL
   datasource:
-      url: jdbc:mysql://localhost:3306/baili?useUnicode=true&characterEncoding=utf8
+      url: jdbc:mysql://localhost:3306/baili?useSSL=true&useUnicode=true&characterEncoding=utf8
       username: root
       password: root
       driver-class-name: com.mysql.jdbc.Driver

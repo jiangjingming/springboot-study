@@ -1,4 +1,4 @@
-package com.baili.springboot.core;
+package com.baili.springboot.core.service;
 
 import com.baili.entity.Student;
 import com.baili.entity.StudentCriteria;
