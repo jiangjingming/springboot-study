@@ -1,50 +1,19 @@
-server:
-  port: 8081
-
 spring:
-  application:
-      name: springboot-study
-  #quartz
-  quartz:
-    enabled: true
-  # MySQL
-  datasource:
-      url: jdbc:mysql://localhost:3306/baili?useSSL=true&useUnicode=true&characterEncoding=utf8
-      username: root
-      password: root
-      driver-class-name: com.mysql.jdbc.Driver
-      type: com.alibaba.druid.pool.DruidDataSource
+  profiles:
+    active: dev     # 本地环境
+#    active: dev       # 环境
+#    active: test      # 开发测试环境
+#    active: pre       # 预发环境
+#    active: online    # 生产环境
 
-      #连接池的配置信息
-      initialSize: 5
-      minIdle: 5
-      maxActive: 20
-      maxWait: 60000
-      timeBetweenEvictionRunsMillis: 60000
-      minEvictableIdleTimeMillis: 300000
-      validationQuery: SELECT 1 FROM DUAL
-      testWhileIdle: true
-      testOnBorrow: true
-      testOnReturn: false
-      poolPreparedStatements: true
-      maxPoolPreparedStatementPerConnectionSize: 20
-      filters: stat,wall,log4j
-      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+# health monitor
+info:
+  app:
+    name: "@project.name@"
+    description: "@project.description@"
+    version: "@project.version@"
+    spring-boot-version: "@spring.boot.version@"
 
-      # Druid Login Params
-      loginUserName: admin
-      loginPassword: Hello@1234
-    # REDIS
-  redis:
-      host: localhost # server host
-      port: 6399 # connection port
-      database: 2 # database name
-      password: baili # server password
-      timeout: 2000
-      # 默认缓存过期时间（秒）
-      expireSeconds: 3600
-      pool:
-        max-idle: 8
-        min-idle: 0
-        max-active: 8
-        max-wait: -1
+logging:
+  config: classpath:logback-baili.xml
+#  level: INFO
