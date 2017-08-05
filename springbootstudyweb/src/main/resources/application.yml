@@ -34,3 +34,17 @@ spring:
       # Druid Login Params
       loginUserName: admin
       loginPassword: Hello@1234
+    # REDIS
+  redis:
+      host: localhost # server host
+      port: 6399 # connection port
+      database: 2 # database name
+      password: baili # server password
+      timeout: 2000
+      # 默认缓存过期时间（秒）
+      expireSeconds: 3600
+      pool:
+        max-idle: 8
+        min-idle: 0
+        max-active: 8
+        max-wait: -1

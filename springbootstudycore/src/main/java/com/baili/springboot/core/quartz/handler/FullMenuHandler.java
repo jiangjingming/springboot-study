@@ -22,6 +22,6 @@ public class FullMenuHandler extends Handler {
 
     @Override
     public TaskGroupEnum getTaskGroupEnum() {
-        return TaskGroupEnum.WHOLE_RISK_MAIL_WARN;
+        return TaskGroupEnum.FULL_MENU;
     }
 }

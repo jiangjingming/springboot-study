@@ -20,6 +20,6 @@ public class ToDayMenuHandler extends Handler {
 
     @Override
     public TaskGroupEnum getTaskGroupEnum() {
-        return TaskGroupEnum.CLOSE_RISK_ARCHIVING;
+        return TaskGroupEnum.TODAY_MENU;
     }
 }

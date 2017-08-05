@@ -1,4 +1,4 @@
-package com.baili.springboot.core.service;
+package com.baili.springboot.core.service.impl;
 
 import com.alibaba.dubbo.common.utils.StringUtils;
 import com.baili.dao.QuartzJobMapper;
@@ -8,6 +8,7 @@ import com.baili.springboot.core.annotation.ExceptionNotice;
 import com.baili.springboot.core.enums.JobStatusEnum;
 import com.baili.springboot.core.quartz.ScheduleJob;
 import com.baili.springboot.core.quartz.service.IQurtzService;
+import com.baili.springboot.core.service.IEarlyWarningQuartzService;
 import com.baili.springboot.study.common.domain.EarlyWarningTaskDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
@@ -24,7 +25,7 @@ import java.util.Objects;
  */
 @Slf4j
 @Service
-public class EarlywarningQuartzServiceImpl implements EarlyWarningQuartzService {
+public class EarlywarningQuartzServiceImpl implements IEarlyWarningQuartzService {
 
     @Autowired
     private IQurtzService quartzServer;

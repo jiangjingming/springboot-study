@@ -3,7 +3,7 @@ package com.baili.springboot.study.web;
 
 import com.baili.springboot.core.quartz.ScheduleJob;
 import com.baili.springboot.core.quartz.service.IQurtzService;
-import com.baili.springboot.core.service.EarlyWarningQuartzService;
+import com.baili.springboot.core.service.IEarlyWarningQuartzService;
 import com.baili.springboot.study.common.domain.EarlyWarningTaskDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ public class QurtzController {
     private IQurtzService qurtzService;
 
     @Autowired
-    private EarlyWarningQuartzService earlyWarningQuartzService;
+    private IEarlyWarningQuartzService IEarlyWarningQuartzService;
 
     /**
      * 初始化任务实例
@@ -43,7 +43,7 @@ public class QurtzController {
     @RequestMapping(value = "/update",method = RequestMethod.POST)
     public Object updateQurtz(@RequestBody ScheduleJob job) {
         EarlyWarningTaskDTO earlyWarningTaskDTO = EarlyWarningTaskDTO.builder().taskGroup(job.getJobGroup()).riskRuleId(Long.valueOf(job.getJobName())).cronExpression(job.getCronExpression()).jobStatus(0).build();
-        earlyWarningQuartzService.updateWarningTask(earlyWarningTaskDTO);
+        IEarlyWarningQuartzService.updateWarningTask(earlyWarningTaskDTO);
         return earlyWarningTaskDTO;
     }
 
@@ -51,7 +51,7 @@ public class QurtzController {
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     public Object addQurtz(@RequestBody ScheduleJob job) {
         EarlyWarningTaskDTO earlyWarningTaskDTO = EarlyWarningTaskDTO.builder().taskGroup(job.getJobGroup()).riskRuleId(Long.valueOf(job.getJobName())).cronExpression(job.getCronExpression()).jobStatus(99).build();
-        earlyWarningQuartzService.addWarningTask(earlyWarningTaskDTO);
+        IEarlyWarningQuartzService.addWarningTask(earlyWarningTaskDTO);
         return earlyWarningTaskDTO;
     }
 
@@ -59,7 +59,7 @@ public class QurtzController {
     @RequestMapping(value = "/enable",method = RequestMethod.POST)
     public Object enableQurtz(@RequestBody ScheduleJob job) {
         EarlyWarningTaskDTO earlyWarningTaskDTO = EarlyWarningTaskDTO.builder().taskGroup(job.getJobGroup()).riskRuleId(Long.valueOf(job.getJobName())).cronExpression(job.getCronExpression()).build();
-        earlyWarningQuartzService.enabledWarningTask(earlyWarningTaskDTO);
+        IEarlyWarningQuartzService.enabledWarningTask(earlyWarningTaskDTO);
         return earlyWarningTaskDTO;
     }
 
@@ -67,7 +67,7 @@ public class QurtzController {
     @RequestMapping(value = "/disable",method = RequestMethod.POST)
     public Object deleteQurtz(@RequestBody ScheduleJob job) {
         EarlyWarningTaskDTO earlyWarningTaskDTO = EarlyWarningTaskDTO.builder().taskGroup(job.getJobGroup()).riskRuleId(Long.valueOf(job.getJobName())).cronExpression(job.getCronExpression()).build();
-        earlyWarningQuartzService.disabledWarningTask(earlyWarningTaskDTO);
+        IEarlyWarningQuartzService.disabledWarningTask(earlyWarningTaskDTO);
         return earlyWarningTaskDTO;
     }
 

@@ -7,7 +7,7 @@ import com.baili.springboot.study.common.domain.EarlyWarningTaskDTO;
  * 任务对外服务service
  * Created by jiangjingming on 2017/6/23.
  */
-public interface EarlyWarningQuartzService {
+public interface IEarlyWarningQuartzService {
 
     /**
      * 添加预警任务
