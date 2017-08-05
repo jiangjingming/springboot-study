@@ -49,9 +49,9 @@ public class ExceptionNoticeAspect {
         executorService.execute(() -> {
             log.error("异常开始捕捉=============================================");
             MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
-            Method me = methodSignature.getMethod();
+            Method method = methodSignature.getMethod();
             Object[] args = joinPoint.getArgs();
-            ExceptionNotice exceptionNotice = me.getAnnotation(ExceptionNotice.class);
+            ExceptionNotice exceptionNotice = method.getAnnotation(ExceptionNotice.class);
             log.info("自定义注解的值：" + exceptionNotice.noticeNickName() + exceptionNotice.noticeRemarks() + exceptionNotice.sendWayType());
 
 
