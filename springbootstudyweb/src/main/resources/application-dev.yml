@@ -48,3 +48,30 @@ spring:
         min-idle: 0
         max-active: 8
         max-wait: -1
+
+# Dubbo
+  dubbo:
+    #scan: com.mhc.venucia.core.dubbo.service
+    application:
+      name: springboot-study
+      owner: baili
+      organization: baili
+    registry:
+      address: zookeeper://47.94.14.194:2181
+    protocol:
+      name: dubbo
+      port: 20880
+    provider:
+      version: 1.0_baili_dev
+      timeout: 60000
+    consumer:
+      version: 1.0_baili_dev
+      timeout: 60000
+      retries: 0
+      check: false
+
+  # Logback
+  log:
+    file:
+      path: ${HOME}/logs/${spring.application.name}/${spring.profiles.active} # 日志文件路径
+      maxKeep: 5  # 最大保留的文件个数

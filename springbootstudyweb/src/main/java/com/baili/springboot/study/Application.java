@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ImportResource;
 
 /**
  * Spring Boot 应用启动类
@@ -12,6 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
  * Created by jingjingming on 17/06/06.
  */
 @EnableCaching
+@ImportResource(locations = { "classpath:dubbo/dubbo-all.xml" })
 @ComponentScan({"com.baili.springboot.core","com.baili.springboot"})
 @SpringBootApplication
 public class Application {
