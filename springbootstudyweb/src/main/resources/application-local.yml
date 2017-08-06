@@ -76,3 +76,14 @@ spring:
     file:
       path: ${HOME}/logs/${spring.application.name}/${spring.profiles.active} # 日志文件路径
       maxKeep: 5  # 最大保留的文件个数
+  mail:
+    host: smtp.163.com
+    username: jiangjingmingjava@163.com
+    password: AS15871827232
+    properties:
+      mail:
+        smtp:
+          anth: true
+          starttls:
+            enable: true
+            required: true
