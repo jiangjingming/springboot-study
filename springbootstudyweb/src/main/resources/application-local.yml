@@ -79,7 +79,7 @@ spring:
   mail:
     host: smtp.163.com
     username: jiangjingmingjava@163.com
-    password: AS15871827232
+    password: AS158...
     properties:
       mail:
         smtp:
