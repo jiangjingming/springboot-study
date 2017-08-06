@@ -6,7 +6,7 @@ import lombok.Getter;
 
 /**
  * Quarz定时任务分组
- * Created by xiaolong
+ * Created by baili
  */
 @AllArgsConstructor
 public enum TaskGroupEnum {
