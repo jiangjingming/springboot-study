@@ -13,6 +13,7 @@ public enum TaskGroupEnum {
 
     FULL_MENU("FULL_MENU", "全部菜单任务"),
     TODAY_MENU("TODAY_MENU","今天要点的菜"),
+    DAILY_REMIND("DAILY_REMIND","日常提醒")
 
     ;
 

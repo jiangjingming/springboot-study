@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: local     # 本地环境
+    active: dev     # 本地环境
 #    active: dev       # 环境
 #    active: test      # 开发测试环境
 #    active: pre       # 预发环境

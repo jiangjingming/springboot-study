@@ -19,6 +19,6 @@ public class DingDingController {
 
     @RequestMapping(value = "send",method = RequestMethod.GET)
     public Boolean DingDingSendMessage() {
-        return dingDingRobotService.sendDingDingRobotMessage(null);
+        return dingDingRobotService.sendDingDingRobotMarkMessage(null);
     }
 }

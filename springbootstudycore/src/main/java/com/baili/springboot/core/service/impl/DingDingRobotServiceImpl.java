@@ -2,6 +2,7 @@ package com.baili.springboot.core.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.baili.springboot.core.model.MessageMarkDownModel;
+import com.baili.springboot.core.model.MessageTextModel;
 import com.baili.springboot.core.service.IDingDingRobotService;
 import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +24,7 @@ import java.io.IOException;
 public class DingDingRobotServiceImpl implements IDingDingRobotService {
     private static final String DING_DING_ROBOT_URL = "https://oapi.dingtalk.com/robot/send?access_token=aca42eb6b8aa30d36013b3fb597ef74df44ce527d84c596a4392d200d1f54e7c";
     @Override
-    public Boolean sendDingDingRobotMessage(MessageMarkDownModel messageMarkDownModel) {
+    public Boolean sendDingDingRobotMarkMessage(MessageMarkDownModel messageMarkDownModel) {
         messageMarkDownModel = new MessageMarkDownModel();
         messageMarkDownModel.setMsgtype("markdown");
         MessageMarkDownModel.Markdown markdown = new MessageMarkDownModel.Markdown();
@@ -39,6 +40,36 @@ public class DingDingRobotServiceImpl implements IDingDingRobotService {
         messageMarkDownModel.setMarkdown(markdown);
         messageMarkDownModel.setAt(at);
         String textMsg = JSON.toJSONString(messageMarkDownModel);
+        HttpClient httpclient = HttpClients.createDefault();
+        HttpPost httppost = new HttpPost(DING_DING_ROBOT_URL);
+        httppost.addHeader("Content-Type", "application/json; charset=utf-8");
+        StringEntity se = new StringEntity(textMsg, "utf-8");
+        httppost.setEntity(se);
+        HttpResponse response;
+        try {
+            response = httpclient.execute(httppost);
+            if (response.getStatusLine().getStatusCode()== HttpStatus.SC_OK){
+                String result= EntityUtils.toString(response.getEntity(), "utf-8");
+                System.out.println(result);
+                return Boolean.TRUE;
+            }
+        } catch (IOException e) {
+            log.error("发送钉钉消息异常,异常信息为：{}",e);
+        }
+        return Boolean.FALSE;
+    }
+
+    @Override
+    public Boolean sendDingDingRobotTextMessage(MessageTextModel messageTextModel) {
+        messageTextModel = new MessageTextModel();
+        MessageTextModel.Text textContent = new MessageTextModel.Text();
+        textContent.setContent("高温补贴任务别忘记啦");
+        MessageTextModel.At at = new MessageTextModel.At();
+        at.setAtAll(true);
+        //at.setAtMobiles(Lists.newArrayList("13599542030"));
+        messageTextModel.setText(textContent);
+        messageTextModel.setAt(at);
+        String textMsg = JSON.toJSONString(messageTextModel);
         HttpClient httpclient = HttpClients.createDefault();
         HttpPost httppost = new HttpPost(DING_DING_ROBOT_URL);
         httppost.addHeader("Content-Type", "application/json; charset=utf-8");
