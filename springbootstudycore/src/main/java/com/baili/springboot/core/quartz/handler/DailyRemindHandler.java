@@ -21,12 +21,13 @@ public class DailyRemindHandler extends Handler {
     @Override
     public void handleRequest(HandlerParam handlerParam) {
         log.info("日常提醒");
+        dingDingRobotService.sendDingDingRobotTextMessage(null);
 
 
     }
 
     @Override
     public TaskGroupEnum getTaskGroupEnum() {
-        return TaskGroupEnum.TODAY_MENU;
+        return TaskGroupEnum.DAILY_REMIND;
     }
 }

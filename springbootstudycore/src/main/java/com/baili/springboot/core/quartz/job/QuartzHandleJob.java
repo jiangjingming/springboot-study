@@ -34,6 +34,7 @@ public class QuartzHandleJob implements Job {
      */
     private static final List<Handler> handlers = Lists.newArrayList(
             SpringUtil.getBean(FullMenuHandler.class),
+            SpringUtil.getBean(DailyRemindHandler.class),
             SpringUtil.getBean(ToDayMenuHandler.class));
 
     /**
