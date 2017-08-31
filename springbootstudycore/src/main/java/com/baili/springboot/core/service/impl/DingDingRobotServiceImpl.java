@@ -28,15 +28,15 @@ public class DingDingRobotServiceImpl implements IDingDingRobotService {
         messageMarkDownModel = new MessageMarkDownModel();
         messageMarkDownModel.setMsgtype("markdown");
         MessageMarkDownModel.Markdown markdown = new MessageMarkDownModel.Markdown();
-        markdown.setTitle("开烟通知");
+        markdown.setTitle("# 开烟通知");
         markdown.setText("标题\n" +
                 "# 一级标题\n" +
                 "## 二级标题\n" +
                 "### 三级标题\n" +
                 "#### 四级标题");
         MessageMarkDownModel.At at = new MessageMarkDownModel.At();
-        at.setAtAll(false);
-        at.setAtMobiles(Lists.newArrayList("13599542030"));
+        at.setAtAll(true);
+        //at.setAtMobiles(Lists.newArrayList("13599542030"));
         messageMarkDownModel.setMarkdown(markdown);
         messageMarkDownModel.setAt(at);
         String textMsg = JSON.toJSONString(messageMarkDownModel);
