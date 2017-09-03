@@ -26,6 +26,10 @@
             <artifactId>springboot-study-common</artifactId>
         </dependency>
         <dependency>
+            <groupId>groupId</groupId>
+            <artifactId>springbootstudyES</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.alibaba.rocketmq</groupId>
             <artifactId>rocketmq-client</artifactId>
         </dependency>
@@ -46,6 +50,10 @@
                 <exclusion>
                     <groupId>org.slf4j</groupId>
                     <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>netty</artifactId>
+                    <groupId>io.netty</groupId>
                 </exclusion>
             </exclusions>
         </dependency>
