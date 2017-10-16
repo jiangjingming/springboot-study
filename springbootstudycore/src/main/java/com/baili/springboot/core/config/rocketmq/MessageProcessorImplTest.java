@@ -13,6 +13,7 @@ public class MessageProcessorImplTest implements MessageProcessor {
     @Override
     public boolean handleMessage(MessageExt messageExt) {
         log.info("receive : " + messageExt.toString());
+        log.info("消息内容：{}", new String(messageExt.getBody()));
         return true;
     }
 }

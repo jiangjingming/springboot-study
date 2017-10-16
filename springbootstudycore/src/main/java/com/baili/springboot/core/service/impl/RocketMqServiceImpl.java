@@ -21,13 +21,15 @@ public class RocketMqServiceImpl implements IRocketMqService {
 
     @Override
     public BizResult<Boolean> sendMessage() throws Exception {
-        Message msg = new Message("TEST",// topic
-                "first",// tag
-                "KKK",//key用于标识业务的唯一性
-                ("Hello RocketMQ !!!!!!!!!!" ).getBytes()// body 二进制字节数组
-        );
-        SendResult result = defaultMQProducer.send(msg);
-        System.out.println(result);
+        for (int i = 0; i < 5; i++) {
+            Message msg = new Message("TEST",// topic
+                    "first",// tag
+                    "KKK",//key用于标识业务的唯一性
+                    ("Hello RocketMQ !!!!!!!!!!" + "-->>" + i).getBytes()// body 二进制字节数组
+            );
+            SendResult result = defaultMQProducer.send(msg);
+            System.out.println(result);
+        }
         return new BizResult<>();
     }
 }
