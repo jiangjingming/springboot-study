@@ -75,7 +75,6 @@ spring:
 
 # Dubbo
   dubbo:
-    #scan: com.mhc.venucia.core.dubbo.service
     application:
       name: springboot-study
       owner: baili
