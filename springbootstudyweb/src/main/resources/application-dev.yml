@@ -28,9 +28,9 @@ rocketmq:
 spring:
   application:
       name: springboot-study
-  #quartz
+  #quartz ture为开启，false为关闭
   quartz:
-    enabled: true
+    enabled: false
   # MySQL
   datasource:
       url: jdbc:mysql://47.94.14.194:3306/baili?useUnicode=true&characterEncoding=utf8
@@ -115,7 +115,7 @@ spring:
   data:
     elasticsearch:
       # 集群名
-      cluster-name: baili-es
+      cluster-name: es-baili
       # 连接节点,注意在集群中通信都是9300端口，否则会报错无法连接上！
       cluster-nodes: localhost:9300
       # 是否本地连接
