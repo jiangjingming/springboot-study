@@ -3,8 +3,7 @@ package com.baili.springboot.study.common.config.quartz;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 /**
  * 异步通知线程池
@@ -14,8 +13,22 @@ import java.util.concurrent.Executors;
 @Configuration
 public class CachedThreadPoolConfig {
 
+    private static volatile ExecutorService threadPool = null;
+    private static final int CORE_SIZE = 10;
+    private static final int MAX_SIZE = 20;
+    private static final int KEEP_ALIVE_TIME = 5;
+
     @Bean
     public ExecutorService getCachedThreadPool() {
-        return Executors.newCachedThreadPool();
+        if (null != threadPool) {
+            return threadPool;
+        }
+        synchronized (CachedThreadPoolConfig.class) {
+            if (null != threadPool) {
+                return threadPool;
+            }
+            threadPool = new ThreadPoolExecutor(CORE_SIZE, MAX_SIZE, KEEP_ALIVE_TIME, TimeUnit.MINUTES, new LinkedBlockingQueue<>());
+            return threadPool;
+        }
     }
 }
