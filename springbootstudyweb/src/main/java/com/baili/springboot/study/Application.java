@@ -10,11 +10,13 @@ import org.springframework.context.annotation.ImportResource;
 /**
  * Spring Boot 应用启动类
  *
- * Created by jingjingming on 17/06/06.
+ *
+ * @author jingjingming
+ * @date 17/06/06
  */
 @EnableCaching
-@ImportResource(locations = { "classpath:dubbo/dubbo-all.xml" })
-@ComponentScan({"com.baili.springboot.core","com.baili.springboot"})
+//@ImportResource(locations = { "classpath:dubbo/dubbo-all.xml" })
+@ComponentScan({"com.baili.springboot"})
 @SpringBootApplication
 public class Application {
 

@@ -21,7 +21,9 @@ import java.util.Objects;
 
 /**
  * 预警定时任务服务
- * Created by jiangjingming on 2017/6/23.
+ *
+ * @author jiangjingming
+ * @date 2017/6/23
  */
 @Slf4j
 @Service
@@ -51,7 +53,7 @@ public class EarlywarningQuartzServiceImpl implements IEarlyWarningQuartzService
      * @return
      */
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     @ExceptionNotice(noticeRemarks = "预警任务修改")
     public void updateWarningTask(EarlyWarningTaskDTO earlyWarningTaskDTO) {
         //查询任务
@@ -83,7 +85,7 @@ public class EarlywarningQuartzServiceImpl implements IEarlyWarningQuartzService
      * @return
      */
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     @ExceptionNotice(noticeRemarks = "预警任务开启")
     public void enabledWarningTask(EarlyWarningTaskDTO earlyWarningTaskDTO) {
         //查询任务
@@ -106,7 +108,7 @@ public class EarlywarningQuartzServiceImpl implements IEarlyWarningQuartzService
      * @return
      */
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     @ExceptionNotice(noticeRemarks = "预警任务禁用")
     public void disabledWarningTask(EarlyWarningTaskDTO earlyWarningTaskDTO) {
         //查询任务

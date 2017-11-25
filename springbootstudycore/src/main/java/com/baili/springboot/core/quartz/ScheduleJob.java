@@ -5,7 +5,9 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * Created by jiangjingming on 17/6/22.
+ *
+ * @author jiangjingming
+ * @date 17/6/22
  */
 @Data
 public class ScheduleJob implements Serializable {

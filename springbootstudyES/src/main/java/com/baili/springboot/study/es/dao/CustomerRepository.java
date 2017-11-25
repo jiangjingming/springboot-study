@@ -20,10 +20,23 @@ import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
 
 import java.util.List;
 
+/**
+ * @author jiangjingming
+ */
 public interface CustomerRepository extends ElasticsearchRepository<Customer, String> {
 
+    /**
+     * 通过名称查询
+     * @param firstName
+     * @return
+     */
     List<Customer> findByFirstName(String firstName);
 
+    /**
+     * 通过名称查询
+     * @param lastName
+     * @return
+     */
     List<Customer> findByLastName(String lastName);
 
 }

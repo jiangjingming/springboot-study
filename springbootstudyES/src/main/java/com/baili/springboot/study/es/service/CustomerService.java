@@ -7,13 +7,9 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
+
 /**
- * @version v0.0.1
- * @Description 业务层
- * @Author wanwt@senthink.com
- * @Creation Date 2017年03月30日 下午8:19
- * @ModificationHistory Who        When          What
- * --------   ----------    -----------------------------------
+ * @author jiangjingming
  */
 @Service
 public class CustomerService {

@@ -8,13 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 
+
 /**
- * @version v0.0.1
- * @Description CustomerController
- * @Author wanwt@senthink.com
- * @Creation Date 2017年03月30日 下午8:21
- * @ModificationHistory Who        When          What
- * --------   ----------    -----------------------------------
+ * @author jiangjingming
  */
 @RestController
 @RequestMapping(value = "/es")
