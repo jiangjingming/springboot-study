@@ -23,7 +23,9 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.Properties;
 /** 
- * Created by jiangjingming on 2016/6/18.
+ *
+ * @author jiangjingming
+ * @date 2016/6/18
  */
 @Configuration
 @EnableTransactionManagement

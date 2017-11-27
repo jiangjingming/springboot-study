@@ -13,7 +13,9 @@
            http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
     <!--发布dubbo接口 -->
-    <dubbo:service interface="com.baili.springboot.study.api.service.StudentService" ref="dubboStudentService"
-                   version="${spring.dubbo.provider.version}"/>
+    <dubbo:service interface="com.baili.springboot.study.api.service.StudentService"
+                   ref="dubboStudentService"
+                   version="${spring.dubbo.provider.version}"
+    />
 
 </beans>

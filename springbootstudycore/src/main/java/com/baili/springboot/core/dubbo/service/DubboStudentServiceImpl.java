@@ -12,10 +12,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Created by jiangjingming on 2017/8/6.
+ *
+ * @author jiangjingming
+ * @date 2017/8/6
  */
 @Service("dubboStudentService")
 public class DubboStudentServiceImpl implements StudentService {
+
     @Autowired
     private StudentMapper studentMapper;
 
