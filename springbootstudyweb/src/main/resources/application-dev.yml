@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8082
 
 rocketmq:
   producer:
@@ -61,9 +61,9 @@ spring:
     # REDIS
   redis:
       host: 47.94.14.194 # server host
-      port: 6399 # connection port
-      database: 2 # database name
-      password: baili # server password
+      port: 6379 # connection port
+      database: 1 # database name
+      password: 123456 # server password
       timeout: 2000
       # 默认缓存过期时间（秒）
       expireSeconds: 3600
@@ -83,7 +83,7 @@ spring:
       address: zookeeper://47.94.14.194:2181
     protocol:
       name: dubbo
-      port: 20880
+      port: 20881
     provider:
       version: 1.0_baili_dev
       timeout: 60000

@@ -20,8 +20,9 @@ import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
 
+
 /**
- * Created by zhenmo on 17/3/18 15:29.
+ * @author jiangjingming
  */
 @Slf4j
 @Configuration

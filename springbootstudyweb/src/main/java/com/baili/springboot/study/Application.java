@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ImportResource;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 
 /**
  * Spring Boot 应用启动类
@@ -14,6 +16,7 @@ import org.springframework.context.annotation.ImportResource;
  * @author jingjingming
  * @date 17/06/06
  */
+@EnableScheduling
 @EnableCaching
 //@ImportResource(locations = { "classpath:dubbo/dubbo-all.xml" })
 @ComponentScan({"com.baili.springboot"})

@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * baili
+ * @author jiangjingming
  */
 @Slf4j
 public class BeanCopierUtil {
