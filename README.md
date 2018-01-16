@@ -9,7 +9,7 @@ springboot-study项目的目标是集成各种服务，基于springboot分布式
 如果说，现在他们还没成功，但是可以很负责人的说，他们正在成功的路上！
 
 ---
-###如何运行项目
+### 如何运行项目
 1. 运行环境 >= java1.8
 2. 初始化数据库 执行init.sql
 3. 如果需要使用自己的消息服务器，请网上自行google安装
@@ -17,7 +17,7 @@ springboot-study项目的目标是集成各种服务，基于springboot分布式
 5. 修改application-dev.yml配置，改为自己的
 6. 运行Application
 ---
-###集成了哪些功能
+### 集成了哪些功能
 1. RPC(dubbo服务)
 2. 分布式quartz集群
 3. 消息中间件rocketMq
@@ -25,4 +25,4 @@ springboot-study项目的目标是集成各种服务，基于springboot分布式
 5. 分布式redis注解锁
 6. 自定义注解异常捕获通知钉钉机器人
 
-##如有陪到任何问题或者意见请github留言或者加QQ:769311903@qq.com
+## 如有陪到任何问题或者意见请github留言或者加QQ:769311903@qq.com
