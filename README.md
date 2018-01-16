@@ -25,4 +25,4 @@ springboot-study项目的目标是集成各种服务，基于springboot分布式
 5. 分布式redis注解锁
 6. 自定义注解异常捕获通知钉钉机器人
 
-## 如有陪到任何问题或者意见请github留言或者加QQ:769311903@qq.com
+## 如有碰到任何问题或者意见请github留言或者加QQ:769311903@qq.com
