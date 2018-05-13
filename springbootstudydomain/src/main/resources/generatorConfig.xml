@@ -45,8 +45,8 @@
         </javaTypeResolver>
 
         <!-- 生成实体类地址 -->
-        <javaModelGenerator targetPackage="${generator.domainPackage}"
-                            targetProject="${generator.targetProject}/src/main/java">
+        <javaModelGenerator targetPackage="${generator.targetPackage}"
+                            targetProject="${generator.targetProject}">
             <!-- 是否在当前路径下新加一层schema,eg：fase路径com.oop.eksp.user.model， true:com.oop.eksp.user.model.[schemaName] -->
             <property name="enableSubPackages" value="true" />
             <!-- 是否针对string类型的字段在set的时候进行trim调用 -->
@@ -55,14 +55,14 @@
 
         <!-- 生成mapxml文件 -->
         <sqlMapGenerator targetPackage="${generator.mapperPackage}"
-                         targetProject="${generator.targetProject}/src/main/java">
+                         targetProject="${generator.targetProject}">
             <!-- 是否在当前路径下新加一层schema,eg：fase路径com.oop.eksp.user.model， true:com.oop.eksp.user.model.[schemaName] -->
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
 
         <!-- 生成mapxml对应client，也就是接口dao -->
         <javaClientGenerator targetPackage="${generator.daoPackage}"
-                             targetProject="${generator.targetProject}/src/main/java" type="XMLMAPPER">
+                             targetProject="${generator.targetProject}" type="XMLMAPPER">
             <!-- 是否在当前路径下新加一层schema,eg：fase路径com.oop.eksp.user.model， true:com.oop.eksp.user.model.[schemaName] -->
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
