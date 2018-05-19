@@ -22,7 +22,7 @@
             <property name="fileName" value="${generator.mapperConfigFilename}" />
             <property name="targetPackage" value="${generator.mapperPackage}" />
             <property name="targetProject"
-                      value="${generator.targetProject}/src/main/java" />
+                      value="${generator.targetProject}" />
         </plugin>
         <plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
             <property name="searchString" value="Example$" />
