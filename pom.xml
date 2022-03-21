@@ -108,7 +108,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo</artifactId>
-            <version>2.5.4-SNAPSHOT</version>
+            <version>2.6.9</version>
         </dependency>
         <dependency>
             <groupId>com.101tec</groupId>
